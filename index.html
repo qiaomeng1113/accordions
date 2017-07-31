@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>艺龙手风琴</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#list {
+			margin-top: 30px;
+			width: 1210px;
+		}
+		#list li {
+			position: relative;
+			float: left;
+			width: 200px;
+			height: 260px;
+			overflow: hidden;
+			background-position: center;
+		}
+		#list div{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, .4);
+		}
+		#list p{
+			position: relative;
+			z-index: 1;
+			margin: 30px auto;
+			display: block;
+			width: 36px;
+			text-align: center;
+			font-size: 30px;
+			color: #fff;
+			font-weight: bold;
+		}
+	</style>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('#list li').mouseenter(function () {
+				// 隐藏子元素
+				$(this).children().css('display', 'none');
+
+				// 做动画
+				$(this).stop(true).animate({
+					width: 400
+				}, 300).siblings().stop(true).animate({
+					width: 160
+				}, 300).children().css('display', 'block');
+			});
+
+			$('#list').mouseleave(function () {
+				$('#list li').animate({
+					width: 200
+				}).children().css('display', 'block');
+			});
+		});
+	</script>
+</head>
+<body>
+	<ul id="list">
+		<li style="background-image:url(images/1.jpg)">
+			<div></div>
+			<p>园林酒店</p>
+		</li>
+		<li style="background-image:url(images/2.jpg)">
+			<div></div>
+			<p>设计师酒店</p>
+		</li>
+		<li style="background-image:url(images/3.jpg)">
+			<div></div>
+			<p>青年旅舍</p>
+		</li>
+		<li style="background-image:url(images/4.jpg)">
+			<div></div>
+			<p>特色客栈</p>
+		</li>
+		<li style="background-image:url(images/5.jpg)">
+			<div></div>
+			<p>海岛酒店</p>
+		</li>
+		<li style="background-image:url(images/6.jpg)">
+			<div></div>
+			<p>海外温泉</p>
+		</li>
+	</ul>
+</body>
+</html>
